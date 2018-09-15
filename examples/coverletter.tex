@@ -20,6 +20,15 @@
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
 
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+\setCJKmainfont{FandolHei}
+
+% 中文自動換行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
@@ -55,7 +64,7 @@
 \photo[circle,noedge,left]{./examples/profile}
 \name{Claud D.}{Park}
 \position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+\address{42-8, Bangbae-ro 15-gil, Seocho-gu, 台北市, 台灣}
 
 \mobile{(+82) 10-9030-1843}
 \email{posquit0.bj@gmail.com}
