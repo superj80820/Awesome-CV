@@ -20,6 +20,15 @@
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
 
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+\setCJKmainfont{FandolHei}
+
+% 中文自動換行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
@@ -55,7 +64,7 @@
 % \photo{./examples/profile.png}
 \name{Claud D.}{Park}
 \position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+\address{42-8, Bangbae-ro 15-gil, Seocho-gu, 台北市, 台灣}
 
 \mobile{(+82) 10-9030-1843}
 \email{posquit0.bj@gmail.com}
@@ -91,14 +100,14 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/presentation.tex}
-\input{cv/writing.tex}
-\input{cv/committees.tex}
+\input{examples/cv/education.tex}
+\input{examples/cv/skills.tex}
+\input{examples/cv/experience.tex}
+\input{examples/cv/extracurricular.tex}
+\input{examples/cv/honors.tex}
+\input{examples/cv/presentation.tex}
+\input{examples/cv/writing.tex}
+\input{examples/cv/committees.tex}
 
 
 %-------------------------------------------------------------------------------
