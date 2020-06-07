@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage[encapsulated]{CJK}    % 打中文用的CJK套件
+
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+% bsmi是字形, 有bsmi,bkai,gbsn,gkai，前兩個字體較不會缺字
+
+
+% 更改表格、圖片標題上的Table、Figure文字成中文
+\renewcommand{\tablename}{表}
+\renewcommand{\figurename}{圖}
+\renewcommand{\refname}{參考文獻}
+
+\title{\LaTeX{} 中文輸入環境(CJK-UTF8)範例}
+\author{Yung-Hsiang Chiu}
+\maketitle
+
+\section{MikTex、WinEdt軟體安裝與設定步驟}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{enumerate}
+\item 下載並安裝MikTex。(bin資料夾內附有基本版MikTex安裝檔案:basic--miktex--2.9.4521.exe)
+\item 安裝WinEdt並註冊，開啟WinEdt並點擊工具列上的Help$\rightarrow$Register WinEdt輸入註冊資訊。(bin資料夾內附有WinEdt安裝檔:winedt55.exe和安裝資訊檔 wineditreginfo.exe)
+\item 啟動WinEdt的MikTex自動設定，點擊工具列上的Options$\rightarrow$Configuration Wizard)，並按下圖\ref{fig:MikTexConfigInWinEdt}中紅框表示的兩處按鈕，以完成啟動MikTex的功能。
+\item 開啟本tex檔案(ChineseUTF8.tex)並點擊TeXify的圖示編譯成dvi檔案。
+
+由於 Big5 編碼模式(Windows預設的文字模式)會有許功蓋問題，例如："程式"這兩個字打在tex中就會造成編譯錯誤。
+我目前尚未找到解決辦法，所以只能建議各位使用 UTF-8 編碼模式。
+
+使用UTF-8編碼模式的缺點在於WinEdt開啟TeX檔案時，必須選擇開啟的"檔案類型"為:UTF-8，如圖\ref{fig:dia_utf8mode}所示，
+若是沒有用UTF-8開啟，則中文部分都會變成亂碼並且無法正確編輯檔案。當我們開啟Tex檔案時，使用了UTF-8的編碼模式，
+則會在WinEdt的介面最下方的狀態列上顯示TeX:UTF-8，如圖\ref{fig:utf8mode}中紅框處所示；
+反之，使用Big5編碼模式開啟的TeX檔案，只會在狀態列上顯示TeX。
+
+\item 編譯成dvi時，MikTex若發現有缺少了某些套件，會自動搜尋網路上可用的套件，然後徵詢我們的意見，因此只需要將電腦接上網路，
+    同意安裝所有缺少的套件，即可完成Miktex中文輸入環境的安裝，約略會需要同意下載4個套件。
+\item dvi編譯成功後，按下dvi2pdf圖示，即可將dvi檔案輸出成pdf檔案。
+\end{enumerate}
+
+
+
+\end{CJK*} % 結束使用CJK提供的打中文功能
+\end{document}
+
+最後，若是使用中文時無法成功編譯，有很大的可能是因為Section的名稱、或是Equation、Figure及Table的標題
+($\backslash\mbox{caption}\{\dots\}$)的中文字產生編譯器內部處理問題。像是文件的起頭使用a4paper設定就會產生編譯問題
+($\backslash \mbox{documentclass}[12\mbox{pt,a4paper}]\{\mbox{article}\}$)。
+
+% 圖片
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{MikTexConfigInWinEdt.eps}
+\caption{啟動WinEdt的MikTex自動設定。}\label{fig:MikTexConfigInWinEdt}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{OpenDialogUTF8.eps}
+\caption{開啟UTF-8編碼模式的TeX檔案}\label{fig:dia_utf8mode}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{LatexUTF8Mode.eps}
+\caption{正在編輯一個以UTF-8模式開啟的TeX檔案。}\label{fig:utf8mode}
+\end{figure}
+
+
+
+\section{中文測試小節標題1}
+
+\textbf{這是CJK-UTF8中文輸入測試範例檔案。}
+
+這是中文測試檔案。\\測試手動換行
+
+測試換段，換段和換行的差異在於首行縮排2個字元
+
+測試引用資料\cite{Bayer1976,evl:bdpsnr,klchung}
+
+\section{標題2針對公式, 圖片及表格測試}
+
+%公式
+\begin{equation}
+    p=\frac{1}{\sqrt{2\pi\sigma^2}}
+\end{equation}
+
+% 表格
+\begin{table}
+\caption{Average improvement ratios平均增進百分比}\label{tbl:4}
+\begin{center}
+\begin{tabular}{ccccccc}
+\hline    & \multicolumn{2}{c}{前人的方法} & \multicolumn{2}{c}{提出的方法} & \multicolumn{2}{c}{提出的方法2}\\
+\hline
+       QP &
+       $\vartriangle$位元率 & $\vartriangle$PSNR &
+       $\vartriangle$位元率 & $\vartriangle$PSNR &
+       $\vartriangle$位元率 & $\vartriangle$PSNR \\
+\hline
+       20 &  -3.4\% & 0.5\% & -20.0\% & 0.4\% & -33.9\% & 0.3\% \\
+       32 &  -7.9\% & 0.4\% & -27.4\% & 0.8\% & -46.5\% & 3.1\% \\
+       42 & -13.3\% & 0.7\% & -31.1\% & 1.7\% & -48.2\% & 7.1\% \\
+       44 & -14.0\% & 0.8\% & -30.8\% & 2.0\% & -45.3\% & 7.8\% \\
+\hline
+       \textbf{Avg.}& \textbf{-7.2\%} & \textbf{0.6\%} & \textbf{-24.2\%} & \textbf{1.0\%} & \textbf{-39.9\%} &  \textbf{2.9\%} \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{thebibliography}{1} % 參考資料開始
+
+\bibitem{Bayer1976}
+B. E. Bayer, ``Color imaging array," U.S. Patent\#$3971065$, 1976.
+
+\bibitem{evl:bdpsnr}
+G. Bjontegaard, ``Calculation of average PSNR differences between RD curves," VECG-M33, ITU-T VECG Meeting, Austin, Texas, 2--4, 2001.
+
+\bibitem{klchung}
+鍾國亮, 影像處理與電腦視覺 第五版, March 2012.
+
+\end{thebibliography} % 參考資料結束
+
+
+
+\end{CJK*} % 結束使用CJK提供的打中文功能
+\end{document}
